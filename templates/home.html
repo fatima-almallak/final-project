@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> 
+
+    </head>
+
+    <body>
+        <nav>
+        <div class="banner">
+            <div class="navbar">
+                 <ul class="nav-link">
+                    <li><a href="{{ url_for('login') }}"class="b" >تسجيل الدخول</a></li>
+                    <li><a href="#" class="b">نبذة عن المشروع</a></li>
+                    <li><a href="#" class="b">تواصل</a></li>
+                    <li><a href="#" class="b">كيفية الاستخدام</a></li>
+                </ul>
+               
+                </div>
+        
+                   
+                    <div class="content">
+                        <h1>البوابة الالكترونية</h1>
+                        <p>نساعدك لادارة خدماتك الالكترونية بالشكل الصحيح</p>
+                    </div>
+            
+        </div>
+    </nav>
+    </body>
+
+    <Script>
+        if(annyang) {
+          var commands = {
+            'تسجيل الدخول':function(){     
+             document.getElementsByClassName("b")[0].click();
+             
+           },
+           
+            'نبذة عن المشروع':function(){
+            document.getElementsByClassName("b")[1].click();
+     
+           },
+           'تواصل':function(){
+             document.getElementsByClassName("b")[2].click();
+     
+            },
+           'كيفيه الاستخدام':function(){
+             document.getElementsByClassName("b")[3].click();
+            },
+           
+           }
+         };
+         annyang.setLanguage('ar-PA');
+         // Add our commands to annyang
+         annyang.addCommands(commands);
+       
+         annyang.debug();
+        annyang.start({ autoRestart: true, continuous: true });
+         
+     </script>
+   
+    
+</html>

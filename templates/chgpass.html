@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <title>afterLogin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> 
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    var passOne = $("#passOne").val();
+    var passTwo = $("#passTwo").val();
+    
+    $("#footerText").html("Fields don't match");
+    
+    var checkAndChange = function()
+    {
+      if(passOne.length < 1){
+        if($("#footer").hasClass("correct")){
+          $("#footer").removeClass("correct").addClass("incorrect");
+          $("#footerText").html("They don't match");
+        }else{
+          $("#footerText").html("They don't match");
+        }
+      }
+      else if($("#footer").hasClass("incorrect"))
+      {
+        if(passOne == passTwo){
+          $("#footer").removeClass("incorrect").addClass("correct");
+          $("#footerText").html("Continue");
+        }
+      }
+      else
+      {
+        if(passOne != passTwo){
+          $("#footer").removeClass("correct").addClass("incorrect");
+          $("#footerText").html("They don't match");
+        } 
+      }   
+    }
+    
+    
+    
+    $("input").keyup(function(){
+      var newPassOne = $("#passOne").val();
+      var newPassTwo = $("#passTwo").val();
+      
+      passOne = newPassOne;
+      passTwo = newPassTwo;
+      
+      checkAndChange();
+    });
+  });
+    </script><meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+
+
+<body>
+  <nav>
+    <div class="bannerr">
+        <div class="navbarr">
+             <ul class="nav-link">
+                <li><a href="login.html"class="b" >تسجيل الخروج</a></li>
+                <li><a href="index.html" class="b">الصفحة الرئيسية</a></li>
+                <li><a href="#" class="b">كيفية الاستخدام</a></li>
+
+
+            </ul>
+        </div>
+
+        <!-- <div class="card">
+          <img src="Lo.png" alt="John" style="width:70%">
+          <div class="about">
+          <ul>
+
+            <li>اسم الطالب: اسيل رجب</li>
+            <br>
+            <li>الكلية: الهندسة والتكنولوجيا</li>
+            <br>
+            <li>التخصص:هندسة انظمة الحاسوب</li>
+            <br>
+            <li>رقم الطالب:	201810607</li>
+            
+            
+         
+          </ul>
+          </div>
+         
+        </div>    -->
+    </div>
+</nav>
+    <div class="chgpass">
+  <form action="/action_page.php">
+        <div id="hed">
+          <center><h1>Change Password</h1></center>
+        </div> 
+        <div id="fm1">
+          <input type="password" id="passc" name="cpsw" requiredplaceholder="current Password"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+           title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+          <br><br>        
+          <input type="password" id="passOne" name="psw" requiredplaceholder="New Password"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+           title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+          <br><br>
+          <input type="password" requiredplaceholder="Confirm Password" id="passTwo"/>
+        </div>
+        <div id="footer" class="incorrect">
+          <center><h1 id="footerText">Filler text</h1></center>
+        </div></form>
+      </div>
+
+
+
+<div id="msg">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A lowercase letter</p>
+  <p id="capital" class="invalid">A capital (uppercase) letter</p>
+  <p id="number" class="invalid">A number</p>
+  <p id="length" class="invalid">Minimum 8 characters</p>
+</div>
+				
+<script>
+var myInput = document.getElementById("passOne");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("msg").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("msg").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+</body>
+</html>

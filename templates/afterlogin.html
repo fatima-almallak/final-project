@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>afterLogin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> 
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <div class="bannerr">
+            <div class="navbarr">
+                 <ul class="nav-link">
+                    <li><a href=" {{ url_for('login') }}"class="b" >تسجيل الخروج</a></li>
+                    <li><a href="{{ url_for('home') }}" class="b">الصفحة الرئيسية</a></li>
+                    <li><a href="#" class="b">كيفية الاستخدام</a></li>
+
+
+                </ul>
+            </div>
+
+            <div class="card">
+              <img src="{{ url_for('static', filename='Lo.png') }}" alt="John" style="width:70%">
+              {% for row in value %}  
+              <div class="about">
+              <ul>
+               <li>رقم الطالب:{{row[0]}} </li>
+                <br>
+                <li> اسم الطالب: {{row[1]}} {{row[2]}}</li>
+                <br>
+                <li>التخصص:{{row[7]}}</li>
+                <br>
+                <li>الكلية: الهندسة والتكنولوجيا</li>
+                
+                
+             
+              </ul>
+              </div>
+             
+            </div>   
+        </div>
+    </nav>
+<div class="sidebar">
+  <br>
+   <a href="{{ url_for('StudentSchedule') }}"><input type="button"  value="جدول الطالب " class="bb1"> </a>
+      <br><br>
+      <a href="{{ url_for('StudentRegistration') }}"><input type="button" value="التسجيل الإلكتروني" class="bb1"> </a>
+      <br><br> 
+      <button class="bb1" onclick="document.getElementById('id02').style.display='block'">السجل المالي </button>
+      <div id="id02" class="modal1">
+        <form class="modal-content1" action="/action_page.php">
+          <div class="container">
+              <label for="uname"><h3> {{row[1]}} {{row[2]}} رصيدك الحالي ={{row[8]}}<h3></label>
+           <br>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn1">إغلاق</button>
+                  <br><br>
+                   </div>     
+               </form></div>      <br><br> 
+      
+      <a href="{{ url_for('StudentInfo') }}"><input type="button" value="تعديل بيانات الطالب " class="bb1"> </a>
+     <br><br>
+      <a href="{{ url_for('CourseSchedule') }}"><input type="button" value="الجدول الدراسي " class="bb1"> </a>
+      <br><br>
+      <a href="{{ url_for('chgpass') }}"><input type="button" value="تغيير كلمة المرور" class="bb1"> </a>
+    </div>
+   
+
+    
+</body>
+  <script>
+    if(annyang) {
+          var commands = {
+            'جدول الطالب':function(){     
+             document.getElementsByClassName("bb1")[0].click();
+             
+           },
+           
+            'التسجيل الالكتروني':function(){
+            document.getElementsByClassName("bb1")[1].click();
+     
+           },
+           'السجل المالي':function(){
+             document.getElementsByClassName("bb1")[2].click();
+     
+            },
+           'تعديل بيانات الطالب':function(){
+             document.getElementsByClassName("bb1")[3].click();
+            },
+            'الجدول الدراسي':function(){
+             document.getElementsByClassName("bb1")[4].click();
+            },
+            'تسجيل الخروج':function(){     
+             document.getElementsByClassName("b")[0].click();
+             
+           },
+           'الصفحه الرئيسيه':function(){     
+             document.getElementsByClassName("b")[1].click();
+             
+           },
+           'كيفيه الاستخدام':function(){     
+             document.getElementsByClassName("b")[2].click();
+             
+           },
+           'رجوع':function(){     
+            window.location.replace("http://127.0.0.1:8000/login")
+             
+           },
+           'اغلاق':function(){     
+            document.getElementsByClassName("cancelbtn1")[0].click();
+             
+           },
+           }
+         };
+         annyang.setLanguage('ar-PA');
+         // Add our commands to annyang
+         annyang.addCommands(commands);
+       
+         annyang.debug();
+        annyang.start({ autoRestart: true, continuous: true });
+
+
+
+    // Get the modal
+    var modal = document.getElementById('id02');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal.style.display = "none";
+        }
+    }
+  </script>
+   
+   {% endfor %}
+</html>

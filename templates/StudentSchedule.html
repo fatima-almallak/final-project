@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StudentSchedule</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+</head>
+<body>
+  <nav>
+    <div class="bannerr">
+        <div class="navbarr">
+             <ul class="nav-link">
+                <li><a href="{{ url_for('login') }}"class="b" >تسجيل الخروج</a></li>
+                <li><a href="{{ url_for('home') }}" class="b">الصفحة الرئيسية</a></li>
+                <li><a href="#" class="b">كيفية الاستخدام</a></li>
+
+
+            </ul>
+        </div>
+
+<div class="sidebar1">
+  
+    <table class="table1" >
+      <thead>
+        <th >رمز المقرر</th>
+        <th >اسم المقرر</th>
+        <!-- <th>النشاط</th> -->
+        <th>عدد الساعات المعتمدة</th>
+        <th>الشعبة</th>
+        <th>الوقت</th>
+        <th>المحاضر</th>
+        <th>القاعة</th>
+        <th>المبنى</th>
+        <!-- <th>تاريخ التسجيل</th>  </tr> -->
+      <tr>
+        <!-- <td> 100%</td>
+        <td> 100%</td> -->
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+        <td> 100%</td>
+    
+        
+      </tr>
+       <!-- <tr>
+        <th>رمز المقرر</th>
+        <th>اسم المقرر</th>
+        <th>النشاط</th>
+        <th>عدد الساعات المعتمدة</th>
+        <th>الشعبة</th>
+        <th>الوقت</th>
+        <th>المحاضر</th>
+        <th>القاعة</th>
+        <th>المبنى</th>
+        <th>تاريخ التسجيل</th>
+      </tr> -->
+     
+      
+    </table></div>
+  </body>
+  <script>
+    if(annyang) {
+          var commands = {
+           'تسجيل الخروج':function(){     
+             document.getElementsByClassName("b")[0].click();
+             
+           },
+           'الصفحه الرئيسيه':function(){     
+             document.getElementsByClassName("b")[1].click();
+             
+           },
+           'كيفية الاستخدام':function(){     
+             document.getElementsByClassName("b")[2].click();
+             
+           },
+           'رجوع':function(){     
+            window.location.replace("{{ url_for('afterlogin') }}")             
+           },
+            
+          
+          }
+         };
+         annyang.setLanguage('ar-PA');
+         // Add our commands to annyang
+         annyang.addCommands(commands);
+       
+         annyang.debug();
+        annyang.start({ autoRestart: true, continuous: true });
+</script>
+  
+
+  </html>
