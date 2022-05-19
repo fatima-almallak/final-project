@@ -44,7 +44,7 @@
   <br>
    <a href="{{ url_for('StudentSchedule') }}"><input type="button"  value="جدول الطالب " class="bb1"> </a>
       <br><br>
-      <a href="{{ url_for('StudentRegistration') }}"><input type="button" value="التسجيل الإلكتروني" class="bb1"> </a>
+      <a href="{{ url_for('StudentRegistration',name=row[7]) }}"><input type="button" value="التسجيل الإلكتروني" class="bb1"> </a>
       <br><br> 
       <button class="bb1" onclick="document.getElementById('id02').style.display='block'">السجل المالي </button>
       <div id="id02" class="modal1">

@@ -57,14 +57,13 @@
           </div><br><br> -->
 
             <!-- <label for="a" >اختر التخصص:</label> -->
-            <h3 class="m">:اختصر التخصص</h3>
-            <div class="custom-select" style="width:200px;">
-            <select name="cars" id="selectbox1">
+        <!--   <h3 class="m">:اختصر التخصص</h3>
+           <div class="custom-select" style="width:200px;">
+            <select name="department" id="selectbox1">
               ">
               <option value="----">-------------</option>
               <option value="هندسه انظمه الحاسوب">هندسه انظمه الحاسوب</option>
               <option value="هندسه الاتصالات">هندسه الاتصالات</option>
-              <option value="هندسه الطاقه المتجدده">هندسه الطاقه المتجدده</option>
               <option value="هندسه البناء">هندسه البناء</option>
               <option value="هندسه الكهرباء">هندسه الكهرباء</option>
               <option value="هندسه الميكاترونيكس">هندسه الميكاترونيكس</option>
@@ -74,18 +73,18 @@
             </select>
           </div>
             <br><br>
-
+        -->
             <!-- <label for="a" >اختر نوع المساق:</label> -->
             <h3 class="m">:اختر نوع المساق</h3>
             <div class="custom-select" style="width:200px;">
-            <select name="cars" id="selectbox2">
-              <option value="----">-------------</option>
-              <option value="اختياري جامعة">اختياري جامعة</option>
-              <option value="اجباري جامعة">اجباري جامعة</option>
-              <option value="اجباري تخصص">اجباري تخصص</option>
-              <option value="اختياري تخصص">اختياري تخصص</option>
-              <option value="إجباري كلية ">إجباري كلية </option>
-              <option value="إختياري كلية">إختياري كلية</option>
+            <select name="coursetype" id="selectbox2">
+              <option id="q0" value="----">-------------</option>
+              <option id="q1" value="اختياري جامعه">اختياري جامعه</option>
+              <option id="q2" value="اجباري جامعه" >اجباري جامعه</option>
+              <option id="q3" value="اجباري تخصص">اجباري تخصص</option>
+              <option id="q4" value="اختياري تخصص">اختياري تخصص</option>
+              <option id="q5" value="اجباري كليه ">اجباري كليه </option>
+              
             </select>
             </div>
           <br><br>
@@ -109,12 +108,13 @@
       <th> 121 </th>
       <th> 121 </th>
   </tr>  -->
-                           
+  
+  {% for row in value %}                         
   <tr>
-  <td>100%</td>
-    <td>100% </td>
-    <td> 100%</td>
-    
+  <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    <td>{{row[2]}}</td>
+    {% endfor %}
         <td>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
            
@@ -166,25 +166,22 @@
             
       
  <p><b>يرجى اختيار الشعبة المراد تسجيلها   </b></p>
- <tr><td>مفتوحة
-                              
-</td>
-  <td>100%</td>
-  <td>100%</td>
-  <td>100%</td>
-  <td>100%</td> 
+ <tr>
+   
+  {% for row in value2 %} 
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td> 
+  {% endfor %}
   <td> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download</button>
-                              
-                               </td> </tr>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download</button></td> </tr>
                           
-                            
-                          
-                          
-                  </table>
+       </table>
                    <button class="btn2"> <b>+ اختيار الشعبة </b> </button>
               </div>
       
@@ -208,7 +205,7 @@
     
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[0];
         if (td) {
           txtValue = td.textContent || td.innerText;
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -402,25 +399,81 @@ if(annyang) {
        document.getElementsByClassName("b")[2].click();
        
      },
-      'داونلود':function(){     
-      document.getElementsByClassName("btn")[0].click();
-      },
-      'اختيار الشعبه':function(){     
-      document.getElementsByClassName("btn2")[0].click();
-      },
-      'المساق الاول':function(){     
-      document.getElementsByClassName("btn3")[0].click();
-      },
+     'هندسه انظمه الحاسوب':function(){     
+        document.getElementsByName("department").options[1].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه الاتصالات':function(){     
+        document.getElementsByName("department").options[2].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه البناء':function(){     
+        document.getElementsByName("department").options[3].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه الكهرباء':function(){     
+        document.getElementsByName("department").options[4].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه انظمه الميكاترونيكس':function(){     
+        document.getElementsByName("department").options[5].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه الميكانيك':function(){     
+        document.getElementsByName("department").options[6].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'هندسه الاتمته الصناعية':function(){     
+        document.getElementsByName("department").options[7].selected = true;
+         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
+     },
+     'اختياري جامعه':function(){     
+        document.getElementById("q1").selected = true;
+         var x =document.getElementById("q1").value; 
+        
+        },
+     'اجباري جامعه':function(){    
+        document.getElementsByName("coursetype").options[2].selected = true;
+         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
+     },
+    
+     'اجباري تخصص':function(){     
+        document.getElementsByName("coursetype").options[3].selected = true;
+         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
+     },
+    
+     'اختياري تخصص':function(){     
+        document.getElementsByName("coursetype").options[4].selected = true;
+         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
+     },
+    
+     'اجباري كلية':function(){     
+        document.getElementsByName("coursetype").options[5].selected = true;
+         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
+     },
+    
       'اغلاق':function(){     
       document.getElementsByClassName("span1")[0].click();
       }, 
       'البحث باستخدام رقم المساق *tag':function(variable){
       let id=document.getElementById('myInput');
       id.value=variable;
+      myFunction();
       },
       'البحث باستخدام اسم المساق *tag':function(variable){
       let id=document.getElementById('myInput1');
       id.value=variable;
+      myFunction1();
+      },
+      'احذف الرقم':function(variable){
+      let id=document.getElementById('myInput');
+      id.value="";
+      myFunction();
+      },
+      'احذف الاسم':function(variable){
+      let id=document.getElementById('myInput1');
+      id.value="";
+      myFunction1();
       },
       'رجوع':function(){     
             window.location.replace("{{ url_for('afterlogin') }}")             

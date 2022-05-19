@@ -74,9 +74,13 @@ def StudentInfo():
    return render_template("StudentInfo.html")   
 
 
-@app.route("/StudentRegistration")
-def StudentRegistration():
-   return render_template("StudentRegistration.html")   
+@app.route("/StudentRegistration/<name>")
+def StudentRegistration(name):
+   q=("SELECT course.course_id,course.course_name,course.noOfHours FROM  course JOIN plan  on course.course_id=plan.course_id and dept_name=(%s)")
+   v=(name)
+   cursor.execute(q,v)
+   data2 = cursor.fetchall()
+   return render_template("StudentRegistration.html",value=data2)
 
 
 
