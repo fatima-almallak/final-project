@@ -80,7 +80,7 @@ def StudentRegistration(name):
    v=(name)
    cursor.execute(q,v)
    data2 = cursor.fetchall()
-   return render_template("StudentRegistration.html",value=data2)
+   return render_template("StudentRegistration.html",value=data2,v=name)
 
 
 

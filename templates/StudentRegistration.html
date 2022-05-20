@@ -7,6 +7,7 @@
   <meta name="viewport" content="width = device-width, initial-scale=1.0">
    </head>
     <body>
+     
       <div class="bannerr">
 
       <div class="navbarr">
@@ -108,52 +109,26 @@
       <th> 121 </th>
       <th> 121 </th>
   </tr>  -->
-  
+  {% for e in v %}
+       {{e}}
+  {% endfor%}
   {% for row in value %}                         
   <tr>
   <td>{{row[0]}}</td>
-    <td>{{row[1]}}</td>
-    <td>{{row[2]}}</td>
-    {% endfor %}
-        <td>
+  <td>{{row[1]}}</td>
+  <td>{{row[2]}}</td>
+  <td>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-           
-
             <button class="btn3" onclick="document.getElementById('id03').style.display='block'">
-                <i class="fa fa-search"></i>
-             </button>
-          <div id="id03" class="modal">
-              <span class="span1"onclick="document.getElementById('id03').style.display='none'"
+            <i class="fa fa-search"></i>
+            </button>
+            <div id="id03" class="modal">
+            <span class="span1"onclick="document.getElementById('id03').style.display='none'"
             class="close" title="Close Modal">&times;</span>
             <form class="modal-content animate" action="/action_page.php">
-              <div class="container"> 
-                      <table id="myTable">
-                        <!-- <label class="container"><th style="width:20%;">الحالة   </th>
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              
-                              <label class="container"><th style="width:20%;">المدرس  </th> 
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              
-                              <label class="container"<th style="width:20%;">الوقت  </th>
-
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              
-                              <label class="container"><th style="width:20%;">القاعة  </th>
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                            
-                              <label class="container"><th style="width:20%;">الشعبة </th>
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label> -->
-                          <tr class="header">
+            <div class="container"> 
+            <table id="myTable">
+            <tr class="header">
                        
                             
                             <th style="width:20%;">الحالة   </th>
@@ -161,34 +136,33 @@
                             <th style="width:20%;">الوقت  </th>
                             <th style="width:20%;">القاعة  </th>
                            <th style="width:20%;" > شعبة </th>
-
-                      </tr>
+            </tr>
             
-      
- <p><b>يرجى اختيار الشعبة المراد تسجيلها   </b></p>
- <tr>
-   
-  {% for row in value2 %} 
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td> 
-  {% endfor %}
-  <td> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download</button></td> </tr>
-                          
-       </table>
-                   <button class="btn2"> <b>+ اختيار الشعبة </b> </button>
-              </div>
-      
-            </form></td>
+<p><b>يرجى اختيار الشعبة المراد تسجيلها   </b></p>
+      {% for row in value2 %}
+      <tr>
+    
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td>
+      <td>{{row[4]}}</td> 
+      <td> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <button class="btn" style="width:100%"><i class="fa fa-download"></i> Download</button>
+      </td>
       </tr>
-  </tr>
+      {% endfor %}
+       </table>
+        <button class="btn2"> <b>+ اختيار الشعبة </b> </button>
+        </div>
+       
+            </form>
+          </td>
+          </tr>
+  {% endfor %}
 </table>
+
 
 </body>
   
