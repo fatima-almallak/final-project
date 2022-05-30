@@ -22,6 +22,7 @@
 <div class="sidebar1">
   
     <table class="table1" >
+      <tr class="header">
       <thead>
         <th >رمز المقرر</th>
         <th >اسم المقرر</th>
@@ -32,21 +33,26 @@
         <th>المحاضر</th>
         <th>القاعة</th>
         <th>المبنى</th>
+        </thead></tr>
         <!-- <th>تاريخ التسجيل</th>  </tr> -->
-      <tr>
+      
         <!-- <td> 100%</td>
         <td> 100%</td> -->
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-        <td> 100%</td>
-    
-        
-      </tr>
+        <tbody>
+
+          {% for row in value %}                         
+          <tr>
+           <td>{{row[7]}}</td>
+           <td>{{row[6]}}</td>
+           <td>{{row[5]}}</td>
+           <td>{{row[4]}}</td>
+           <td>{{row[3]}}</td>
+           <td>{{row[2]}}</td>
+           <td>{{row[1]}}</td>
+           <td>{{row[0]}}</td>
+         
+           </tr>
+           {% endfor %}
        <!-- <tr>
         <th>رمز المقرر</th>
         <th>اسم المقرر</th>
@@ -59,7 +65,7 @@
         <th>المبنى</th>
         <th>تاريخ التسجيل</th>
       </tr> -->
-     
+     </tbody>
       
     </table></div>
   </body>

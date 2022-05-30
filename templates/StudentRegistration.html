@@ -3,360 +3,459 @@
   <head>
   <title>التسجيل الالكتروني</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+
   <meta name="viewport" content="width = device-width, initial-scale=1.0">
    </head>
     <body>
+      
      
-      <div class="bannerr">
+       <div class="bannerr">
 
-      <div class="navbarr">
+        <div class="navbarr">
         <ul class="nav-link">
            <li><a href="{{ url_for('login') }}"class="b" >تسجيل الخروج</a></li>
            <li><a href="{{ url_for('home') }}" class="b">الصفحة الرئيسية</a></li>
            <li><a href="#" class="b">كيفية الاستخدام</a></li>
        </ul>
-   </div>
+         </div>
 
-        <!-- <div class="container">
-            <label for="name"><b>name:</b></label> <label for="name"><b>% اسم الطالب  %</b></label>
-            <br>
-        
-            <label for="id"><b>id :</b> %رقم الطالب %</label>
-           </div> -->
-        <!-- <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="اختر التخصص" title="Type in a category"> -->
-       
-<br>
-
-
-        <!-- <div class="dropdown">
-            <button onclick="drop()" class="dropbtn">اختر التخصص</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#">هندسه انظمه الحاسوب</a>
-              <a href="#">هندسه الاتصالات</a>
-              <a href="#">هندسه الطاقه المتجدده</a>
-              <a href="#">هندسه البناء</a>
-              <a href="#">هندسه الكهرباء</a>
-              <a href="#">هندسه الميكاترونيكس</a>
-              <a href="#">هندسه الميكانيك</a>
-               <a href="#">هندسه الاتمته الصناعيه</a>
-
-            </div>
-          </div><br><br> -->
-          <!-- <div class="dropdown1">
-            <button onclick="drop1()" class="dropbtn1">اختر نوع المساق </button>
-            <div id="myDropdown1" class="dropdown1-content">
-              <a href="#">اختياري جامعة</a>
-              <a href="#">اجباري جامعة</a>
-              <a href="#">اجباري تخصص</a>
-              <a href="#">اختياري تخصص</a>
-              <a href="#">إجباري كلية </a>
-              <a href="#">إختياري كلية </a>
-              
-
-            </div>
-          </div><br><br> -->
-
-            <!-- <label for="a" >اختر التخصص:</label> -->
-        <!--   <h3 class="m">:اختصر التخصص</h3>
-           <div class="custom-select" style="width:200px;">
-            <select name="department" id="selectbox1">
-              ">
-              <option value="----">-------------</option>
-              <option value="هندسه انظمه الحاسوب">هندسه انظمه الحاسوب</option>
-              <option value="هندسه الاتصالات">هندسه الاتصالات</option>
-              <option value="هندسه البناء">هندسه البناء</option>
-              <option value="هندسه الكهرباء">هندسه الكهرباء</option>
-              <option value="هندسه الميكاترونيكس">هندسه الميكاترونيكس</option>
-              <option value="هندسه الميكانيك">هندسه الميكانيك</option>
-              <option value="هندسه الاتمته الصناعيه">هندسه الاتمته الصناعيه</option>
-
-            </select>
-          </div>
-            <br><br>
-        -->
-            <!-- <label for="a" >اختر نوع المساق:</label> -->
-            <h3 class="m">:اختر نوع المساق</h3>
-            <div class="custom-select" style="width:200px;">
-            <select name="coursetype" id="selectbox2">
-              <option id="q0" value="----">-------------</option>
-              <option id="q1" value="اختياري جامعه">اختياري جامعه</option>
-              <option id="q2" value="اجباري جامعه" >اجباري جامعه</option>
-              <option id="q3" value="اجباري تخصص">اجباري تخصص</option>
-              <option id="q4" value="اختياري تخصص">اختياري تخصص</option>
-              <option id="q5" value="اجباري كليه ">اجباري كليه </option>
-              
-            </select>
-            </div>
-          <br><br>
-        <input type="text" class="myinput" id="myInput" onkeyup="myFunction()" placeholder="البحث باستخدام رقم المساق">
+         <div style="display:none" id="divv">
+          <input type="text" id="t1">
+        </div>
         <br>
-        <input type="text" class="myinput" id="myInput1" onkeyup="myFunction1()" placeholder="البحث باستخدام اسم المساق ">
-<br><br>
-<table id="myTable">
-  <tr class="header">
+        <input type="text"  style="display: none" value="{{v2}}" id="id015">
+
+      <br>
+      <div id="reg" style="display:none">
+       <table id="registration_table"  >
+        <tr class="header">
+          <thead>
+        <th>حذف</th>
+        <th>الوقت</th>
+        <th>الشعبة</th>
+        <th>عدد الساعات</th>
+        <th>اسم المقرر</th>
+        <th>رقم المقرر</th>
+        </thead>
+        </tr>
+        <tbody id="registration_body">
+
+
+        </tbody>
+
+       </table>
+       <input type="text" id="sum_of_hours">
+      </div>
+       <br>
+        
+       <br>
+       <input type="text" class="myinput" id="myInput8" onkeyup="myFunction8()" placeholder=" نوع المساق">
+
+          <br>
+        <input type="text" class="myinput" id="myInput" onkeyup="myFunction()" placeholder=" رقم المساق">
+        <br>
+        <input type="text" class="myinput" id="myInput1" onkeyup="myFunction1()" placeholder=" اسم المساق ">
+        
+        
+        <br><br>
+
+       <table id="viewTable">
+       <tr class="header">
     
-    <th style="width:25%;">رمز المقرر</th>
-    <th style="width:25%;">اسم المساق </th>
-    <th style="width:25%;">عدد الساعات </th>
-    <th style="width:25%;">الشعب  </th>
+       <th style="width:25%;">رمز المقرر</th>
+       <th style="width:25%;">اسم المساق </th>
+       <th style="width:25%;">عدد الساعات </th>
+       <th style="width:25%;">نوع المساق </th>
+       <th style="width:25%;">الشعب  </th>
     
-  </tr>
-   <!-- <tr>
-      <th> 121 </th>
-      <th> هبة  </th>
-      <th> 121 </th>
-      <th> 121 </th>
-      <th> 121 </th>
-  </tr>  -->
-  {% for e in v %}
-       {{e}}
-  {% endfor%}
-  {% for row in value %}                         
-  <tr>
-  <td>{{row[0]}}</td>
-  <td>{{row[1]}}</td>
-  <td>{{row[2]}}</td>
-  <td>
+       </tr>
+
+       {% for row in value %}                         
+       <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[2]}}</td>
+        <td>{{row[3]}}</td>
+        <td>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <button class="btn3" onclick="document.getElementById('id03').style.display='block'">
-            <i class="fa fa-search"></i>
-            </button>
-            <div id="id03" class="modal">
-            <span class="span1"onclick="document.getElementById('id03').style.display='none'"
-            class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate" action="/action_page.php">
+            <button class="btn3"><i class="fa fa-search"></i></button>
+        </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+
+             
+          <div id="id03" class="modal">
+
+            <!-- <div id="id02" class="modal1">
+              <form class="modal-content1" action="/action_page.php">
+                <div class="container">
+                    <label for="uname"><h3> هل انت متاكد؟<h3></label>
+                 <br>
+                  <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn1">تاكيد</button>
+                        <br><br>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn1">تراجع</button>
+                        <br><br>
+                         </div>     
+                     </form></div>      <br><br>  -->
+            <!-- onclick="document.getElementById('id03').style.display='none' -->
+            <span class="span1" onclick= closeDiv() class="close" title="Close Modal">&times;</span>
+            <!-- <form class="modal-content animate" > -->
             <div class="container"> 
-            <table id="myTable">
-            <tr class="header">
+             <table id="myTable">
+             <tr class="header">
                        
                             
                             <th style="width:20%;">الحالة   </th>
                             <th style="width:20%;">المدرس  </th> 
                             <th style="width:20%;">الوقت  </th>
                             <th style="width:20%;">القاعة  </th>
-                           <th style="width:20%;" > شعبة </th>
-            </tr>
+                            <th style="width:20%;" > شعبة </th>
+                            <th style="width:20%;" > اختيار</th>
+             </tr>
             
-<p><b>يرجى اختيار الشعبة المراد تسجيلها   </b></p>
-      {% for row in value2 %}
-      <tr>
-    
-      <td>{{row[0]}}</td>
-      <td>{{row[1]}}</td>
-      <td>{{row[2]}}</td>
-      <td>{{row[3]}}</td>
-      <td>{{row[4]}}</td> 
-      <td> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <button class="btn" style="width:100%"><i class="fa fa-download"></i> Download</button>
-      </td>
-      </tr>
-      {% endfor %}
-       </table>
-        <button class="btn2"> <b>+ اختيار الشعبة </b> </button>
-        </div>
+                   <p><b>يرجى اختيار الشعبة المراد تسجيلها   </b></p>
+             
+                       <input type="text" id="test">
+                 <tbody id="tBody"> </tbody>
+             </table>
+              <!-- <button class="btn2"> <b>+ اختيار الشعبة </b> </button> -->
+           </div>
        
-            </form>
-          </td>
-          </tr>
-  {% endfor %}
-</table>
+ 
 
 
 </body>
-  
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> -->
 <script>
 
-    // للبحث باستخدام رقم المساق 
-   function myFunction() {
-      // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }}
-    //   للبحث عن اسم المساق 
-    function myFunction1() {
-      // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput1");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }}
-      
-// للبحث عن نوع المساق 
-function myFunction2() {
-  // Declare variables
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("mySearch1");
+ var course_id;
+ 
+ 
+ 
   
+  function closeDiv(){
+    document.getElementById('id03').style.display='none';
+    document.getElementById('myInput1').value="";
+   myFunction1() ;
 
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myMenu1");
-  li = ul.getElementsByTagName("li");
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
   }
-}
-var modal = document.getElementById('id03');
+
+  // للبحث باستخدام رقم المساق 
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("viewTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }}
+  //   للبحث عن اسم المساق 
+  function myFunction1() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("viewTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }}
+
+
+    //   للبحث عن نوع المساق 
+  function myFunction8() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput8");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("viewTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }}
+
+
+
+    document.getElementById("myTable").addEventListener("click", function(evt) {
+
+      var btn = evt.target;
+      if(btn.tagName==="BUTTON"){
+      var row = btn.parentNode.parentNode; 
+      var cells = row.getElementsByTagName("td"); 
+      console.log(cells[4].textContent);
+      console.log(course_id);
+      var std_id = document.getElementById("id015").value;
+      
+      var s_id=cells[4].textContent;
+      if (confirm("هل انت متأكد؟")) {
         
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
+     // var sec_time = cells[2].textContent;
+
+      $.ajax({
+        url: "{{ url_for('registration_ajax') }}",
+        data: {'cl' : course_id , 'sl' : s_id , 'std_id' : std_id},
+        type: 'POST',
+        success: function(response) {
+         document.getElementsByClassName("span1")[0].click();
+         document.getElementById('myInput1').value="";
+         myFunction1();
+
+        
+
+            var trHTML = '';
+            $('#registration_body').html(trHTML);
+            //console.log((response[1][1]).time)
+            
+            
+           // $.each(response[1], function (i) {
+              //console.log((response[1][i]))
+              for (var i = 0; i < response[1].length; ++i){
+                trHTML +=
+                '<tr><td>'
+                +' <button style="width:100%"><i class="fa fa-download"></i></button>'
+                + '</td><td>'
+                + (response[1][i]).time
+                + '</td><td>'
+                + (response[1][i]).s_id
+                + '</td><td>'
+                + (response[1][i]).nh
+                + '</td><td>'
+                + (response[1][i]).cn
+                + '</td ><td>'
+                + (response[1][i]).c_id
+                + '</td></tr>';
+  
+              //i++;
+           // });
+                }
+              $('#registration_body').append(trHTML);
+              document.getElementById('reg').style.display='block';
+ // }
+
+//نهاية الif 
+         
+         //console.log(response[0]);
+         //console.log(response[1]);
+
+
+         document.getElementById("t1").value=response;
+         document.getElementById("divv").style.display="block";
+
+        },
+        
+        error: function(error) {
+        console.log(error);
         }
-        /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function drop() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-// لاختياري التخصص
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+        });
+        }///////
+      
+      
+      
+      } else {
+        txt = "You pressed Cancel!";
       }
-    }
-  }}
-//   ----------------لاختيار نوع المساق --------------------
-  function drop1() {
-  document.getElementById("myDropdown1").classList.toggle("show");
-}
+    
+      
+      
+      }); 
 
-// Close the dropdown menu if the user clicks outside of it
-// /نوع المساق  التخصص
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn1')) {
-    var dropdowns1 = document.getElementsByClassName("dropdown1-content");
-    var i;
-    for (i = 0; i < dropdowns1.length; i++) {
-      var openDropdown1 = dropdowns1[i];
-      if (openDropdown1.classList.contains('show')) {
-        openDropdown1.classList.remove('show');
-      }
-    }
-  }}
+/////////////////////////////////////////////////////////////////////
+//delete a course
+
+document.getElementById("registration_table").addEventListener("click", function(evt) {
+
+  var btn = evt.target;
+  if(btn.tagName==="BUTTON"){
+  var row = btn.parentNode.parentNode; 
+  var cells = row.getElementsByTagName("td"); 
+  var std_id = document.getElementById("id015").value;
+  course_id = cells[5].textContent;
+  var s_id=cells[2].textContent;
+  console.log(cells[4].textContent);
+  console.log(course_id);
+  if (confirm("هل انت متأكد؟")) {
+    
+ // var sec_time = cells[2].textContent;
+
+  $.ajax({
+    url: "{{ url_for('delete_ajax') }}",
+    data: {'cl' : course_id , 'sl' : s_id , 'std_id' : std_id},
+    type: 'POST',
 
 
-  var x, i, j, l, ll, selElmnt, a, b, c;
-/*look for any elements with the class "custom-select":*/
-x = document.getElementsByClassName("custom-select");
-l = x.length;
-for (i = 0; i < l; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  ll = selElmnt.length;
-  /*for each element, create a new DIV that will act as the selected item:*/
-  a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  /*for each element, create a new DIV that will contain the option list:*/
-  b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (j = 1; j < ll; j++) {
-    /*for each option in the original select element,
-    create a new DIV that will act as an option item:*/
-    c = document.createElement("DIV");
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    c.addEventListener("click", function(e) {
-        /*when an item is clicked, update the original select box,
-        and the selected item:*/
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
+    success: function(response) {
+     document.getElementsByClassName("span1")[0].click();
+     document.getElementById('myInput1').value="";
+     myFunction1();
+
+   
+        var trHTML = '';
+        $('#registration_body').html(trHTML);
+
+          for (var i = 0; i < response[1].length; ++i){
+            trHTML +=
+            '<tr><td>'
+            +' <button style="width:100%"><i class="fa fa-download"></i></button>'
+            + '</td><td>'
+            + (response[1][i]).time
+            + '</td><td>'
+            + (response[1][i]).s_id
+            + '</td><td>'
+            + (response[1][i]).nh
+            + '</td><td>'
+            + (response[1][i]).cn
+            + '</td ><td>'
+            + (response[1][i]).c_id
+            + '</td></tr>';
+
+          //i++;
+       // });
             }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-    });
-    b.appendChild(c);
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-      /*when the select box is clicked, close any other select boxes,
-      and open/close the current select box:*/
-      e.stopPropagation();
-      closeAllSelect(this);
-      this.nextSibling.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
-}
-function closeAllSelect(elmnt) {
-  /*a function that will close all select boxes in the document,
-  except the current select box:*/
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
+          $('#registration_body').append(trHTML);
+          document.getElementById('reg').style.display='block';
+// }
+
+//نهاية الif 
+     
+     //console.log(response[0]);
+     //console.log(response[1]);
+
+
+     document.getElementById("t1").value=response;
+     document.getElementById("divv").style.display="block";
+
+    },
+    
+    error: function(error) {
+    console.log(error);
     }
+    });
+    }///////
+  
+  
+  
+  } else {
+    txt = "You pressed Cancel!";
   }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
+
+  
+  
+  }); 
+
+
+
+
+
+       
+//function fun(c){
+// console.log(c);
+//}
+////////////////////////////////////////////////////
+////show to the sections table for a course
+
+
+document.getElementById("viewTable").addEventListener("click", function(evt) {
+var btn = evt.target;
+if(btn.tagName==="BUTTON"){
+var row = btn.parentNode.parentNode; 
+var cells = row.getElementsByTagName("td"); 
+//console.log(cells[0].textContent);
+course_id =cells[0].textContent;
+
+$.ajax({
+url: "{{ url_for('process_ajax') }}",
+data: {'cl' : course_id},
+type: 'POST',
+success: function(response) {
+ // for (const key in response){
+  var trHTML = '';
+  $('#tBody').html(trHTML);
+  $.each(response, function (i) {
+    
+    var state ="";
+   if((response[i]).cap == 0){
+      (response[i]).cap="مغلقة"
     }
-  }
+   else{
+      (response[i]).cap="مفتوحة"
+    }
+  
+  trHTML +=
+  '<tr><td>'
+  + (response[i]).cap
+  + '</td><td>'
+  + (response[i]).r_id
+  + '</td><td>'
+  + (response[i]).s_time
+  + '</td><td>'
+  + (response[i]).inst_name
+  + '</td ><td>'
+  + (response[i]).s_id
+  + '</td><td>' 
+  +' <button style="width:100%"><i class="fa fa-download"></i></button>'
+  + '</td></tr>';
+  
+  
+  });
+  $('#tBody').append(trHTML);
+  document.getElementById('id03').style.display='block';
+ // }
+},
+
+//},
+error: function(error) {
+console.log(error);
 }
-/*if the user clicks anywhere outside the select box,
-then close all select boxes:*/
-document.addEventListener("click", closeAllSelect);
+});
+}///////
+
+}); 
+
+/////////////////////////
+//////////////////////////
+///////////////////////////
+////////////////////////////
+///////////////////////////////
+//////////////////////////////
+
 
 
 if(annyang) {
@@ -373,72 +472,43 @@ if(annyang) {
        document.getElementsByClassName("b")[2].click();
        
      },
-     'هندسه انظمه الحاسوب':function(){     
-        document.getElementsByName("department").options[1].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه الاتصالات':function(){     
-        document.getElementsByName("department").options[2].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه البناء':function(){     
-        document.getElementsByName("department").options[3].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه الكهرباء':function(){     
-        document.getElementsByName("department").options[4].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه انظمه الميكاترونيكس':function(){     
-        document.getElementsByName("department").options[5].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه الميكانيك':function(){     
-        document.getElementsByName("department").options[6].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'هندسه الاتمته الصناعية':function(){     
-        document.getElementsByName("department").options[7].selected = true;
-         var x =document.getElementsByName("department").options[ document.getElementsByName("department").selectedIndex].value;
-     },
-     'اختياري جامعه':function(){     
-        document.getElementById("q1").selected = true;
-         var x =document.getElementById("q1").value; 
-        
-        },
-     'اجباري جامعه':function(){    
-        document.getElementsByName("coursetype").options[2].selected = true;
-         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
-     },
-    
-     'اجباري تخصص':function(){     
-        document.getElementsByName("coursetype").options[3].selected = true;
-         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
-     },
-    
-     'اختياري تخصص':function(){     
-        document.getElementsByName("coursetype").options[4].selected = true;
-         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
-     },
-    
-     'اجباري كلية':function(){     
-        document.getElementsByName("coursetype").options[5].selected = true;
-         var x =document.getElementsByName("coursetype").options[ document.getElementsByName("coursetype").selectedIndex].value;
-     },
-    
+     
       'اغلاق':function(){     
       document.getElementsByClassName("span1")[0].click();
+      document.getElementById('myInput1').value="";
+      myFunction1();
+
       }, 
-      'البحث باستخدام رقم المساق *tag':function(variable){
+      'رقم المساق *tag':function(variable){
       let id=document.getElementById('myInput');
+      variable=variable.replaceAll(" ", "");
       id.value=variable;
       myFunction();
       },
-      'البحث باستخدام اسم المساق *tag':function(variable){
+
+      'شعب المساق *tag':function(variable){
+        //let id=
+        document.getElementById('myInput1').value=variable;
+        //id.value=variable;
+        myFunction1();
+
+        document.getElementsByClassName("btn3")[0].click();
+
+
+        },
+
+      'اسم المساق *tag':function(variable){
       let id=document.getElementById('myInput1');
       id.value=variable;
       myFunction1();
       },
+
+
+      'نوع المساق *tag':function(variable){
+        let id=document.getElementById('myInput8');
+        id.value=variable;
+        myFunction8();
+        },
       'احذف الرقم':function(variable){
       let id=document.getElementById('myInput');
       id.value="";
@@ -460,6 +530,8 @@ if(annyang) {
  
   annyang.debug();
   annyang.start({ autoRestart: true, continuous: true });
+
+  
     </script>
     
     </html>

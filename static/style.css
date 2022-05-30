@@ -879,9 +879,9 @@ outline: none;
         
         .modal-content {
           background-color: #009688;
-          margin: 0% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+          margin: 0% auto 0% auto; 
           border: 1px solid #009688;
-          width: 90%; /* Could be more or less, depending on screen size */
+          width: 90%; 
           height: 70%;
           text-align: center;
           
@@ -939,6 +939,18 @@ outline: none;
         }
         
         #myTable tr ,#myTable1 tr{
+          /* Add a bottom border to all table rows */
+          border-bottom: 1px solid rgb(5,5, 5);
+        }
+
+
+        #viewTable th, #viewTable td  {
+          text-align: left; /* Left-align text */
+          padding: 12px; /* Add padding */
+          background-color: #009688;
+        }
+        
+        #viewTable tr {
           /* Add a bottom border to all table rows */
           border-bottom: 1px solid rgb(5,5, 5);
         }
@@ -1013,7 +1025,7 @@ outline: none;
             margin-bottom: 12px;
              /* Add some space below the input */
                 }
-          #myTable,#myTable1 {
+          #myTable,#myTable1,#viewTable {
             border-collapse: collapse; /* Collapse borders */
             width:100%; /* Full-width */
             border: 1px solid rgb(5, 5, 5); /* Add a grey border */
@@ -1023,13 +1035,13 @@ outline: none;
              /* Increase font-size */
           }
           
-          #myTable th, #myTable td ,#myTable1 th, #myTable1 td {
+          #myTable th, #myTable td ,#myTable1 th, #myTable1 td,#viewTable th, #viewTable td  {
             text-align: left; /* Left-align text */
             padding: 12px; /* Add padding */
             text-align: center;
           }
           
-          #myTable tr ,#myTable1 tr{
+          #myTable tr ,#myTable1 tr,#viewTable tr{
             /* Add a bottom border to all table rows */
             border-bottom: 1px solid rgb(5,5, 5);
           }
@@ -1344,9 +1356,9 @@ outline: none;
           border: none;
           padding: 12px 30px;
           cursor: pointer;
-        background-color: #555;
+          background-color: #555;
           width: 50%;
-          right: 8px;
+          /* right: 8px; */
         }
         .btn2 {
           background-color: #009688;
